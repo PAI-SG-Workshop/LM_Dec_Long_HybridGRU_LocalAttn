@@ -1,0 +1,40 @@
+{
+ "model": "hyb_gru_local",
+ "repo": "(new) lucidrains/local-attention",
+ "target_repo": "LM_Dec_Long_HybridGRU_LocalAttn",
+ "category": "Long",
+ "upstream": "lucidrains/local-attention (MIT)",
+ "unified": [
+  "GRU layer + 6 blocked sliding-window (256) rotary attention layers from local-attention (real bounded memory)"
+ ],
+ "torch": "2.5.1+cu124",
+ "gpu": "NVIDIA GeForce RTX 3070 Ti",
+ "stage": "check",
+ "started": "2026-11-16 13:15:33",
+ "smoke": false,
+ "params": 20741120,
+ "causality": {
+  "causal": true,
+  "uses_input": true,
+  "worst_leak": 0.0,
+  "min_effect": 1.9476971626281738,
+  "logit_scale": 2.4677632318267824,
+  "length": 256,
+  "positions": [
+   17,
+   63,
+   100,
+   130,
+   200
+  ]
+ },
+ "data_checks": [
+  "enwik8 train bytes  90,000,000 expected  90,000,000 OK",
+  "enwik8 valid bytes   5,000,000 expected   5,000,000 OK",
+  "enwik8 test  bytes   5,000,000 expected   5,000,000 OK",
+  "enwik8 distinct byte values in first 10M train bytes: 200 (vocab 256)",
+  "recall L=512 random gap: 16 answers/sample, keys/values/distractors disjoint OK",
+  "recall L=512 max gap: 16 answers/sample, keys/values/distractors disjoint OK"
+ ],
+ "seconds": 1.9
+}
